@@ -8,15 +8,13 @@ This repository contains the code, raw results, and audit framework accompanying
 
 This work audits [MatrAIx](https://github.com/MatrAIx-ai/MatrAIx-Persona-8B), an open-source persona synthesis and evaluation framework, for cultural and linguistic validity. MatrAIx validates 10 behavioral/cognitive persona attributes through counterfactual testing, but identity attributes (cultural background, primary language) currently receive no equivalent validation.
 
-We propose a nine-area audit framework for cultural validity in persona systems (full framework in `/audit/`) and run three counterfactual probes to test whether identity attributes produce valid, research-consistent behavioral variation or stereotype-amplified behavior.
+We propose a nine-area audit framework for cultural validity in persona systems (detailed in Sections 2–5 of the paper) and run three counterfactual probes to test whether identity attributes produce valid, research-consistent behavioral variation or stereotype-amplified behavior.
 
 ## Repository Structure
 
 ```
 .
 ├── README.md
-├── audit/
-│   └── cultural_validity_audit_framework.md   # Full 9-area audit document
 ├── probes/
 │   ├── probe1_cultural_background.py          # Directness/hedging by cultural background
 │   ├── probe2_language_label.py               # Language-label stereotype leakage
