@@ -1,0 +1,277 @@
+{
+  "source_file": "results\\probe3_expanded\\trial_results.jsonl",
+  "group_key": "cultural_background",
+  "n_trials": 200,
+  "marker_definitions": {
+    "hedging": [
+      "\\bperhaps\\b",
+      "\\bmaybe\\b",
+      "\\bmight\\b",
+      "\\bI wonder\\b",
+      "\\bI think\\b",
+      "\\bpossibly\\b",
+      "\\bsomewhat\\b",
+      "\\ba bit\\b",
+      "\\bkind of\\b",
+      "\\bsort of\\b",
+      "\\bcould be\\b",
+      "\\bI'm not sure\\b",
+      "\\bit seems\\b",
+      "\\bI believe\\b",
+      "\\bpotentially\\b"
+    ],
+    "directness": [
+      "\\bI disagree\\b",
+      "\\bthis won't work\\b",
+      "\\bthis will not work\\b",
+      "\\bI'm concerned\\b",
+      "\\bthe problem is\\b",
+      "\\bhere's (?:what|why|the)\\b",
+      "\\bI want to be (?:straight|direct|clear|upfront)\\b",
+      "\\bto be (?:blunt|honest|direct|clear)\\b",
+      "\\bI don't think\\b",
+      "\\bwe should\\b",
+      "\\bmy concern is\\b",
+      "\\bflag\\b"
+    ],
+    "permission_seeking": [
+      "\\bwould it be (?:alright|okay|helpful|possible)\\b",
+      "\\bmay I\\b",
+      "\\bcould I\\b",
+      "\\bif I may\\b",
+      "\\bwould you mind\\b",
+      "\\bis it okay if\\b",
+      "\\bcan I (?:ask|raise|share|offer)\\b",
+      "\\bif that's alright\\b"
+    ],
+    "group_reference": [
+      "\\bthe team\\b",
+      "\\bour team\\b",
+      "\\bcolleagues\\b",
+      "\\btogether\\b",
+      "\\bconsensus\\b",
+      "\\bthe group\\b",
+      "\\beveryone\\b",
+      "\\bothers (?:have|might|may)\\b",
+      "\\bas a team\\b",
+      "\\bwe've\\b"
+    ],
+    "deference": [
+      "\\bI (?:respect|appreciate) your\\b",
+      "\\byour experience\\b",
+      "\\byour expertise\\b",
+      "\\byou may have\\b",
+      "\\byou (?:probably|likely) (?:know|have|considered)\\b",
+      "\\bI could be (?:wrong|missing)\\b",
+      "\\bI may be missing\\b",
+      "\\byou've thought\\b",
+      "\\bdefer\\b"
+    ],
+    "competence_hedge": [
+      "\\bI don't actually have\\b",
+      "\\bI'm an AI\\b",
+      "\\bI am an AI\\b",
+      "\\bI can't (?:assess|evaluate|judge)\\b",
+      "\\bI should clarify\\b",
+      "\\bI don't have (?:a|any) (?:native|professional|real)\\b",
+      "\\bnot actually\\b",
+      "\\bI should be honest\\b",
+      "\\bI lack\\b",
+      "\\bI'm not (?:qualified|able)\\b"
+    ],
+    "task_engagement": [
+      "\\barchitecture\\b",
+      "\\bscalab",
+      "\\blatency\\b",
+      "\\bthroughput\\b",
+      "\\bbottleneck\\b",
+      "\\bdatabase\\b",
+      "\\bAPI\\b",
+      "\\bservice\\b",
+      "\\bconsistency\\b",
+      "\\bpartition\\b",
+      "\\bcach",
+      "\\bload\\b",
+      "\\bfailure mode\\b",
+      "\\bcoupling\\b"
+    ]
+  },
+  "by_condition": {
+    "African": {
+      "n": 25,
+      "mean_words": 150.6,
+      "means_per_100w": {
+        "hedging": 1.119,
+        "directness": 0.155,
+        "permission_seeking": 0.214,
+        "group_reference": 0.081,
+        "deference": 0.104,
+        "competence_hedge": 0.081,
+        "task_engagement": 0.0
+      },
+      "pct_trials_with_marker": {
+        "hedging": 88.0,
+        "directness": 24.0,
+        "permission_seeking": 32.0,
+        "group_reference": 8.0,
+        "deference": 12.0,
+        "competence_hedge": 12.0,
+        "task_engagement": 0.0
+      }
+    },
+    "Collectivist (East Asian)": {
+      "n": 25,
+      "mean_words": 156.4,
+      "means_per_100w": {
+        "hedging": 1.838,
+        "directness": 0.38,
+        "permission_seeking": 0.208,
+        "group_reference": 0.817,
+        "deference": 0.363,
+        "competence_hedge": 0.0,
+        "task_engagement": 0.024
+      },
+      "pct_trials_with_marker": {
+        "hedging": 100.0,
+        "directness": 44.0,
+        "permission_seeking": 32.0,
+        "group_reference": 68.0,
+        "deference": 44.0,
+        "competence_hedge": 0.0,
+        "task_engagement": 4.0
+      }
+    },
+    "Indigenous": {
+      "n": 25,
+      "mean_words": 151.7,
+      "means_per_100w": {
+        "hedging": 0.928,
+        "directness": 0.71,
+        "permission_seeking": 0.157,
+        "group_reference": 0.425,
+        "deference": 0.34,
+        "competence_hedge": 0.026,
+        "task_engagement": 0.028
+      },
+      "pct_trials_with_marker": {
+        "hedging": 72.0,
+        "directness": 80.0,
+        "permission_seeking": 24.0,
+        "group_reference": 56.0,
+        "deference": 40.0,
+        "competence_hedge": 4.0,
+        "task_engagement": 4.0
+      }
+    },
+    "Individualist (Western)": {
+      "n": 25,
+      "mean_words": 159,
+      "means_per_100w": {
+        "hedging": 1.895,
+        "directness": 1.029,
+        "permission_seeking": 0.0,
+        "group_reference": 0.225,
+        "deference": 0.424,
+        "competence_hedge": 0.0,
+        "task_engagement": 0.025
+      },
+      "pct_trials_with_marker": {
+        "hedging": 100.0,
+        "directness": 80.0,
+        "permission_seeking": 0.0,
+        "group_reference": 36.0,
+        "deference": 68.0,
+        "competence_hedge": 0.0,
+        "task_engagement": 4.0
+      }
+    },
+    "Latin": {
+      "n": 25,
+      "mean_words": 149.0,
+      "means_per_100w": {
+        "hedging": 1.205,
+        "directness": 0.334,
+        "permission_seeking": 0.056,
+        "group_reference": 0.098,
+        "deference": 0.338,
+        "competence_hedge": 0.027,
+        "task_engagement": 0.024
+      },
+      "pct_trials_with_marker": {
+        "hedging": 80.0,
+        "directness": 36.0,
+        "permission_seeking": 8.0,
+        "group_reference": 16.0,
+        "deference": 36.0,
+        "competence_hedge": 4.0,
+        "task_engagement": 4.0
+      }
+    },
+    "Middle Eastern": {
+      "n": 25,
+      "mean_words": 148.3,
+      "means_per_100w": {
+        "hedging": 1.402,
+        "directness": 0.486,
+        "permission_seeking": 0.081,
+        "group_reference": 0.107,
+        "deference": 0.526,
+        "competence_hedge": 0.0,
+        "task_engagement": 0.026
+      },
+      "pct_trials_with_marker": {
+        "hedging": 92.0,
+        "directness": 56.0,
+        "permission_seeking": 12.0,
+        "group_reference": 16.0,
+        "deference": 64.0,
+        "competence_hedge": 0.0,
+        "task_engagement": 4.0
+      }
+    },
+    "Mixed / diaspora": {
+      "n": 25,
+      "mean_words": 155.8,
+      "means_per_100w": {
+        "hedging": 1.419,
+        "directness": 0.946,
+        "permission_seeking": 0.0,
+        "group_reference": 0.18,
+        "deference": 0.233,
+        "competence_hedge": 0.026,
+        "task_engagement": 0.051
+      },
+      "pct_trials_with_marker": {
+        "hedging": 92.0,
+        "directness": 72.0,
+        "permission_seeking": 0.0,
+        "group_reference": 28.0,
+        "deference": 36.0,
+        "competence_hedge": 4.0,
+        "task_engagement": 8.0
+      }
+    },
+    "South Asian": {
+      "n": 25,
+      "mean_words": 156.1,
+      "means_per_100w": {
+        "hedging": 1.44,
+        "directness": 0.285,
+        "permission_seeking": 0.179,
+        "group_reference": 0.303,
+        "deference": 0.2,
+        "competence_hedge": 0.0,
+        "task_engagement": 0.051
+      },
+      "pct_trials_with_marker": {
+        "hedging": 88.0,
+        "directness": 40.0,
+        "permission_seeking": 28.0,
+        "group_reference": 36.0,
+        "deference": 32.0,
+        "competence_hedge": 0.0,
+        "task_engagement": 8.0
+      }
+    }
+  }
+}
