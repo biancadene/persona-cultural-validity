@@ -38,12 +38,6 @@ MAX_TOKENS = 300
 CONDITIONS = [
     "Individualist (Western)",
     "Collectivist (East Asian)",
-    "South Asian",
-    "Latin",
-    "African",
-    "Middle Eastern",
-    "Indigenous",
-    "Mixed / diaspora",
 ]
 
 TRIALS_PER_CONDITION = 25
@@ -129,10 +123,10 @@ def check_access(provider):
         msg = str(e)
         print(f"  FAILED: {msg[:300]}")
         low = msg.lower()
-        if "429" in msg or "quota" in low or "rate" in low or "resource_exhausted" in low:
+        if "404" in msg or "not_found" in low or "not found" in low or "does not exist" in low:
+            print("  -> Bad model name. Fix GEMINI_MODEL/OPENAI_MODEL at the top of this file.")
+        elif "429" in msg or "quota" in low or "resource_exhausted" in low:
             print("  -> This is a quota/rate limit. Not a code problem. Try later.")
-        elif "not found" in low or "404" in low or "does not exist" in low:
-            print("  -> Bad model name. Fix the model constant at the top of this file.")
         elif "auth" in low or "api key" in low or "401" in low or "permission" in low:
             print("  -> Auth problem. Check your API key env var.")
         return False
@@ -184,6 +178,8 @@ def run(provider):
                 except Exception as e:
                     err = str(e)
                     low = err.lower()
+                    if "404" in err or "not_found" in low or "not found" in low:
+                        break
                     if "429" in err or "quota" in low or "resource_exhausted" in low:
                         wait = min(60, 5 * (2 ** attempt))
                         print(f"    rate limited, waiting {wait}s "
@@ -247,4 +243,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

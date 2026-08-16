@@ -1,59 +1,71 @@
 # Cultural Stereotyping in Persona-Conditioned Language Models
 
-Code, data, and paper for an independent audit of identity-attribute conditioning in [MatrAIx](https://github.com/MatrAIx-ai/MatrAIx-Persona-8B), an open-source persona-based AI evaluation framework.
+Code, data, and paper for an independent audit of identity-attribute conditioning in [MatrAIx](https://arxiv.org/abs/2608.04205), an open-source persona-based AI evaluation framework.
 
-**Paper:** [`paper/cultural_validity_audit_v3.md`](paper/cultural_validity_audit_v3.md)
+**Paper:** [`paper/cultural_validity_audit_v6.md`](paper/cultural_validity_audit_v6.md)
 
 ## Overview
 
-Persona-based evaluation systems simulate diverse users by conditioning language models on structured identity attributes. When those attributes include culture and language, the resulting behavior may reflect real cross-cultural variation or amplified stereotype — and most systems do not check which.
+Persona-based evaluation systems simulate diverse users by conditioning language models on structured identity attributes. When those attributes include culture and language, the resulting behavior may reflect real cross-cultural variation or amplified stereotype, and most systems do not check which.
 
-MatrAIx validates ten behavioral attributes (coding style, communication traits, register) through counterfactual persona-adherence testing. It validates no identity attribute. This work examines that gap from two directions: 575 behavioral trials, and direct analysis of the system's schema and generative dependency graph.
+MatrAIx validates ten behavioral attributes (coding style, communication traits, register) through counterfactual persona-adherence testing. It validates no identity attribute. This work examines that gap from three directions: 1,175 behavioral trials across two model families, direct analysis of the system's schema and generative dependency graph, and cross-model replication.
 
-The two lines of evidence diverge. Cultural labels produce large behavioral effects. The persona system's design does not cause them.
+The behavioral and structural evidence diverge, and that divergence is the central result. Cultural labels produce large behavioral effects. The persona system's design does not cause them.
 
 ## Findings
 
-575 trials across three counterfactual probes, plus schema and dependency graph analysis.
+1,175 trials: 975 on `claude-opus-4-8` across four counterfactual probes, plus 200 on `gpt-4o` replicating Probe 1, with schema and dependency graph analysis.
 
 | Probe | Question | Finding |
 |---|---|---|
-| **1: Cultural background, implicit framing** (n=200) | Does a cultural label shift communication behavior? | Yes, substantially. Direct assertion appeared in 96% of "Individualist (Western)" trials vs. 24% for "Collectivist (East Asian)"; permission-seeking in 0% vs. 60%. Polarization concentrates in the two schema values that name a psychological orientation. |
-| **3: Cultural background, explicit framing** (n=200) | Does framing salience moderate the effect? | Yes. Foregrounding cultural context within the task halved the directness gap (72 → 36 points) and permission-seeking gap (60 → 32 points). Probes differ in task as well as framing, so this is suggestive rather than isolated. |
-| **2: Language label** (n=175) | Does a native-language label affect task confidence? | **No.** Task engagement was 100% across all seven languages. Competence-hedging did not order by training-data representation — Hindi (36%) exceeded Fulfulde (32%) and English (20%). A pilot finding at n=5 suggesting competence suppression for Fulfulde **did not replicate**. |
-| **Schema / dependency graph** | Do these effects originate in MatrAIx's design? | No. Across five identity dimensions there are zero edges to competence dimensions. 133 of 137 `cultural_background` edges are undocumented but functionally inert (max probability spread ≈0.011). |
+| **1: Cultural background, implicit framing** (n=200, Claude) | Does a cultural label shift communication behavior? | Yes, substantially. Direct assertion appeared in 96% of "Individualist (Western)" trials versus 24% for "Collectivist (East Asian)"; permission-seeking in 0% versus 60%. |
+| **4: Framing isolation** (n=400, Claude) | Does framing salience moderate the effect, with task held constant? | Directionally yes, modestly. Both coding methods find the directness and permission-seeking gaps narrowing under a cultural reflection cue, but disagree on magnitude by roughly a factor of three (lexical 35% and 40%; blind judge 14% and 12%), and the judge finds two other dimensions widening. Not recommended as mitigation on this evidence. |
+| **3: Cultural background, explicit framing** (n=200, Claude) | Same question, task-confounded | Same direction as Probe 4. Reported as supporting evidence only; Probe 4 exists to remove the confound. |
+| **2: Language label** (n=175, Claude) | Does a native-language label affect task confidence? | No. Task engagement was 100% across all seven languages. Competence hedging did not order by training-data representation: Hindi (36%) exceeded Fulfulde (32%) and English (20%). |
+| **Cross-model replication** (n=200, GPT-4o) | Does the Probe 1 effect transfer to another model? | In kind, not in detail. GPT-4o shows comparable separation across cultural values (28 pts directness, 52 pts group reference) but no detectable rank agreement with Claude on any dimension (Spearman rho between +0.48 and −0.35, all p > 0.2). |
+| **Schema / dependency graph** | Do these effects originate in MatrAIx's design? | No. Across five identity dimensions there are zero edges to competence dimensions. 133 of 137 `cultural_background` edges are undocumented but functionally inert (max probability spread ≈ 0.011). |
 
-**Headline:** Cultural labels rendered into prompts produce large behavioral shifts that the persona schema does not cause and cannot prevent. How identity is framed appears to moderate the effect.
+**Headline:** Cultural labels rendered into prompts produce large behavioral shifts that the persona schema does not cause and cannot prevent. The effect appears on both models tested; which label produces which behavior does not transfer between them. An audit performed on one model does not describe another.
 
-### A note on the non-replication
+## Two non-replications, reported in full
 
-An earlier version of this work led with a striking pilot result: a persona labeled with a lower-resource native language (Fulfulde) disengaged from a technical task and questioned its own competence, in 3 of 5 trials. At n=25 the effect vanished — task engagement was 100%, and a high-resource language (Hindi) hedged more.
+Both are kept visible rather than quietly removed, because the failure modes are instructive and they fail differently.
 
-That finding is reported in the paper as non-replicating. It is left visible rather than quietly removed, because the failure mode is instructive: small-n persona studies readily produce vivid, quotable results that do not survive expansion.
+**The Fulfulde pilot.** An earlier version of this work led with a striking result: a persona labeled with a lower-resource native language disengaged from a technical task and questioned its own competence, in 3 of 5 trials. At n=25 the effect vanished. Task engagement was 100%, and a high-resource language (Hindi) hedged more. This is a sample-size failure. Five trials produced a pattern that did not exist.
 
-## Repository Structure
+**The orientation-bearing-labels claim.** Versions 3 through 5 of this paper argued that polarization concentrates in the two schema values naming a psychological orientation, "Individualist (Western)" and "Collectivist (East Asian)," and that this construct conflation supplies the specific lexical trigger for stereotyped output. On GPT-4o, Individualist ties for highest directness with two geographic values, Collectivist sits mid-range with three geographic values below it, and the extremes are South Asian and Middle Eastern. The claim is withdrawn in v6 and reported as a non-replication. This is a generalization failure. Two hundred trials produced a pattern that is real on that model and does not describe cultural labels as such.
+
+Adequate sample size protects against the first failure and not at all against the second.
+
+## Repository structure
 
 ```
 .
 ├── paper/
-│   ├── cultural_validity_audit.md          # v1 (superseded — pre-schema-analysis)
-│   └── cultural_validity_audit_v3.md       # current
+│   ├── cultural_validity_audit.md          # v1 (superseded, pre-schema-analysis)
+│   └── cultural_validity_audit_v6.md       # current
 ├── probes/
-│   ├── probe1_expanded.py                  # 8 cultural values × 25, implicit framing
-│   ├── probe2_expanded.py                  # 7 languages × 25, in/out-of-schema
-│   ├── probe3_expanded.py                  # 8 cultural values × 25, explicit framing
+│   ├── probe1_expanded.py                  # 8 cultural values x 25, implicit framing
+│   ├── probe2_expanded.py                  # 7 languages x 25, in/out-of-schema
+│   ├── probe3_expanded.py                  # 8 cultural values x 25, explicit framing
+│   ├── probe4_framing.py                   # 8 values x 2 cues x 25, task held constant
 │   ├── probe1_cultural_background.py       # original pilot (n=10/condition)
 │   ├── probe2_language_label.py            # original pilot (n=5/condition)
 │   └── probe3_assertiveness.py             # original pilot (n=5/condition)
+├── crossmodel_probe1.py                    # Probe 1 replication, OpenAI + Gemini
 ├── analyze_lexical.py                      # deterministic marker coding
-├── analyze_judge.py                        # LLM-judge rubric coding (optional layer)
+├── analyze_judge.py                        # LLM-judge rubric coding
+├── analyze_probe4.py                       # Probe 4 lexical comparison
+├── analyze_judge_probe4.py                 # Probe 4 judge comparison
+├── compare_models.py                       # cross-model comparison
 └── results/
-    ├── probe1_expanded/                    # 200 trials + lexical_analysis.json
+    ├── probe1_expanded/                    # 200 trials + lexical + judge analysis
     ├── probe2_expanded/                    # 175 trials + lexical_analysis.json
     ├── probe3_expanded/                    # 200 trials + lexical_analysis.json
-    ├── probe1_cultural_background/         # pilot results
-    ├── probe2_language_label/              # pilot results
-    └── probe3_assertiveness/               # pilot results
+    ├── probe4_framing/                     # 400 trials + framing + judge analysis
+    ├── crossmodel_probe1.jsonl             # raw cross-model trials, all providers
+    ├── crossmodel_openai_norm.jsonl        # OpenAI trials, apostrophe-normalized
+    └── [pilot result directories]
 ```
 
 Raw trial outputs are JSONL, one response per line, including condition, trial number, model, and full text.
@@ -61,6 +73,7 @@ Raw trial outputs are JSONL, one response per line, including condition, trial n
 ## Method
 
 **Conditioning.** Personas are conditioned using MatrAIx's own phrase templates verbatim, from `persona/schema/dimensions.json`:
+
 - `cultural_background` → `"with a {value} cultural frame"`
 - `primary_language` → `"a native {value} speaker"`
 
@@ -68,48 +81,66 @@ Probe conditions use MatrAIx's exact schema values. All eight `cultural_backgrou
 
 **Tasks are neutral.** Instructions never mention communication style, competence, or any measured dimension. Observed differences arise from persona conditioning alone.
 
-**Coding is deterministic.** `analyze_lexical.py` counts seven marker categories defined a priori as regex sets, applied identically across conditions. No model judgment. Marker definitions are in the script and reproduced in the output JSON. This is crude by design — it cannot capture meaning or implicature — but it is fully reproducible and free of judge bias.
+**Coding is deterministic.** `analyze_lexical.py` counts seven marker categories defined a priori as regex sets, applied identically across conditions. No model judgment. Marker definitions are in the script and reproduced in the output JSON. This is crude by design, since it cannot capture meaning or implicature, but it is fully reproducible and free of judge bias.
 
-An optional LLM-judge layer (`analyze_judge.py`) applies a 1–5 rubric across six dimensions. The judge sees only response text, never the condition label.
+An LLM-judge layer (`analyze_judge.py`) applies a 1 to 5 rubric across six dimensions. The judge sees only response text, never the condition label. Where the two methods diverge, the paper reports both and treats the more conservative estimate as primary.
 
-**Model.** All 575 trials used `claude-opus-4-8`, default temperature, 300 max tokens. 575 successful, 0 errors.
+**Models.** Probes 1 through 4 used `claude-opus-4-8` (975 trials, 0 errors). Cross-model replication used `gpt-4o` (200 trials, 0 errors). Both at default temperature, 300 max tokens. A Gemini replication was attempted and abandoned on quota exhaustion after 17 trials from a single condition; those trials are present in the raw JSONL but are not analyzed.
+
+**One cross-model coding caveat.** GPT-4o emits typographic apostrophes (U+2019) in roughly a third of instances; Claude emitted none across 975 trials. Any regex marker containing a straight apostrophe therefore undercounts GPT-4o silently. Text is normalized before coding. Anyone doing cross-model lexical comparison should check this before trusting their numbers.
 
 ## Reproducing
 
-```bash
-pip install anthropic
-export ANTHROPIC_API_KEY="your-key"
+```
+pip install anthropic openai google-genai
+```
+
+```
+$env:ANTHROPIC_API_KEY = "your-key"
+$env:OPENAI_API_KEY = "your-key"
 ```
 
 Run probes (each writes JSONL incrementally):
 
-```bash
+```
 python probes/probe1_expanded.py
 python probes/probe2_expanded.py
 python probes/probe3_expanded.py
+python probes/probe4_framing.py
+```
+
+Cross-model replication (checks provider access before spending quota, resumable):
+
+```
+python crossmodel_probe1.py --check
+python crossmodel_probe1.py --provider openai
 ```
 
 Analyze:
 
-```bash
+```
 python analyze_lexical.py results/probe1_expanded/trial_results.jsonl cultural_background
 python analyze_lexical.py results/probe2_expanded/trial_results.jsonl language
 python analyze_lexical.py results/probe3_expanded/trial_results.jsonl cultural_background
+python analyze_probe4.py results/probe4_framing/trial_results.jsonl
+python analyze_lexical.py results/crossmodel_openai_norm.jsonl cultural_background
 ```
 
 Optional LLM-judge layer (costs API credits; `--per-condition` caps trials):
 
-```bash
+```
 python analyze_judge.py results/probe1_expanded/trial_results.jsonl cultural_background --per-condition 10
+python analyze_judge_probe4.py results/probe4_framing/trial_results.jsonl --per-condition 10
 ```
 
-Schema analysis was performed directly against a local clone of the MatrAIx repository. Queries are documented in the paper, §2.3 and §3.5.
+Schema analysis was performed directly against a local clone of the MatrAIx repository. Queries are documented in the paper, sections 2.3 and 3.5.
 
 ## Limitations
 
 - **Lexical coding is crude.** Marker prevalence is not validated construct measurement. Responses may express deference or directness in phrasings outside the defined patterns.
-- **The framing comparison is confounded.** Probes 1 and 3 differ in task as well as framing. A clean test would hold the task fixed.
-- **Single model, single provider.** Effects attributed to model priors need cross-provider replication.
+- **Markers are not portable across models without validation.** Applied to GPT-4o, most categories functioned, but competence hedging returned 0% across all 200 trials through pattern mismatch rather than behavioral absence. Cross-model comparison needs per-model marker validation or a coding method less sensitive to surface phrasing.
+- **Partial cross-model coverage.** Only Probe 1 was replicated. Probes 2, 3, and 4, including the framing manipulation, remain single-model results.
+- **Rank comparison is underpowered.** Spearman correlations across eight values cannot distinguish weak association from none.
 - **English only.** All interactions were in English, including for personas specified as native speakers of other languages.
 - **No significance testing.** Descriptive rates only; no correction for multiple comparisons.
 - **Partial schema coverage.** Five identity dimensions and the directed edge set. Other graph structures were not analyzed.
@@ -118,16 +149,16 @@ Schema analysis was performed directly against a local clone of the MatrAIx repo
 
 This is independent research using MatrAIx's public repository and released schema. It is offered as collaborative quality assurance.
 
-The findings are, on balance, favorable to MatrAIx's design: its dependency graph contains no identity-to-competence edges, its documented edges carry rationale and explicit epistemic hedging, and its cultural-background conditionals are near-uniform. The behavioral effects reported here are not caused by that design and would not be prevented by fixing it.
+The findings are, on balance, favorable to MatrAIx's design: its dependency graph contains no identity-to-competence edges, its documented edges carry rationale and explicit epistemic hedging, and its cultural-background conditionals are near-uniform. The behavioral effects reported here are not caused by that design and would not be prevented by fixing it. They are inherited from whichever model renders the persona.
 
-The recommendations that follow are narrow: extend the existing validation suite to identity attributes, separate cultural affiliation from cultural orientation in the schema, and either document or remove 133 inert undocumented edges.
+The recommendations are narrow: extend the existing validation suite to identity attributes, validate against each model actually deployed rather than assuming results transfer, separate cultural affiliation from cultural orientation in the schema as a representational matter, and either document or remove 133 inert undocumented edges.
 
 ## Citation
 
 ```bibtex
-@misc{williams2026framing,
-  title  = {Framing Salience Moderates Cultural Stereotyping in Persona-Conditioned
-            Language Models: A Schema-Level and Behavioral Audit},
+@misc{williams2026cleanschemas,
+  title  = {Clean Schemas, Stereotyped Personas: Locating Cultural Bias in
+            Persona-Conditioned Language Models},
   author = {Williams, Bianca Den{\'e}},
   year   = {2026},
   note   = {https://github.com/biancadene/cultural-validity-audit-matraix}
