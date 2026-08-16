@@ -18,7 +18,7 @@ Fourth, framing salience moderates the effect modestly. In a controlled comparis
 
 We additionally report two non-replications. A pilot finding that a lower-resource language label suppressed apparent competence did not survive expansion from n=5 to n=25, and native-language labels showed no representation-ordered effect at n=175. Our own interpretive claim that orientation-bearing cultural labels polarize most, advanced in an earlier version of this paper on single-model evidence, did not survive cross-model testing and is withdrawn.
 
-We conclude that cultural stereotyping in persona conditioning cannot be addressed through schema design alone, that it must be validated against each model a system actually deploys, and that conditioning templates are a design surface worth testing, though the specific intervention examined here is too modest to recommend as mitigation.
+We conclude that the divergence between the two model families is a construct validity problem and not only a stability problem: two instruments that rank the same categories with no agreement are not tracking a common underlying construct. We further note that the behaviors most often attributed to culture in these systems, directness, deference, hedging, and permission-seeking, are treated in the relevant literature as mitigation strategies governed by power distance, social distance, and size of imposition within a specific interaction, all of which a persona system can specify directly. Cultural stereotyping in persona conditioning cannot be addressed through schema design alone, must be validated against each model a system actually deploys, and should not be presented as measurement of demographic groups without a demonstration of construct validity that the field has not yet required.
 
 ## 1. Introduction
 
@@ -31,6 +31,8 @@ MatrAIx has infrastructure suited to answering this: a persona-adherence suite t
 This paper approaches the gap from two directions. We measure behavior across 1,175 counterfactual trials, and we examine the schema and dependency graph directly to determine whether observed effects are attributable to the persona system's design. The two lines of evidence diverge, and that divergence is our central result.
 
 A third line of evidence, cross-model replication, bears on how far that result travels. We find that it travels in kind but not in detail: a second model family stereotypes just as systematically, and differently.
+
+MatrAIx is our case study rather than our subject. Because the effects we report originate at generation time, they are inherited by any system that renders an identity label into a prompt, whatever the quality of the schema supplying it. That MatrAIx's design turns out to be careful is what makes the dissociation visible; a less rigorous system would have confounded it. Our recommendations are correspondingly split between those that apply to any system conditioning on identity and those specific to MatrAIx.
 
 We also report two findings that did not replicate, one of them our own interpretive claim from an earlier version of this work. Both are described in full.
 
@@ -280,6 +282,32 @@ Our orientation-bearing-labels claim followed the same shape at a different scal
 
 We report both at length because the failure mode seems likely to be common in persona research, and because the two cases fail differently. The first is a sample-size failure: five trials produced a pattern that did not exist. The second is a generalization failure: two hundred trials produced a pattern that does exist, on that model, and does not describe cultural labels as such. Adequate n protects against the first and not at all against the second. The finding we found most compelling at each stage was the one that dissolved on expansion.
 
+### 4.5 The cross-model result is a validity problem, not only an instability problem
+
+Section 3.7 reports that two models produce comparable separation across the same eight cultural labels with no detectable rank agreement on any dimension. We have so far treated this as a practical warning: audit findings do not transfer between models. It supports a stronger reading.
+
+In measurement terms, two instruments that rank the same eight categories with correlations at or near zero on every dimension are not measuring the same construct. If cultural background were a stable property that both models tracked with noise, the orderings would agree imperfectly rather than not at all. What we observe instead is that each model produces an ordering that is systematic within itself, reproducible across 25 trials per cell, and unrelated to the other model's.
+
+The most economical account is that neither model is tracking cultural variation. Each is producing label-conditioned output governed by whatever associations that particular string carries in that particular model's priors. The output is stable enough to look like measurement and arbitrary enough, across instruments, to fail as measurement.
+
+This matters because persona systems are used as measurement instruments. The purpose of generating a persona labeled "South Asian" is to learn something about how a product performs for South Asian users. That inference requires the label to track something real about the population it names. Our data provide no evidence that it does, and the cross-model divergence is evidence against.
+
+We state the claim carefully. We have tested two models, on one probe, with one task, coded by one method whose portability we have already qualified. This does not establish that no persona system can achieve construct validity on cultural attributes. It establishes that construct validity has not been demonstrated for the practice as it currently operates, that the field has not asked for such a demonstration, and that the one test available here came back negative.
+
+### 4.6 The measured behaviors are governed by situational face-work, not group membership
+
+There is a further reason to expect cultural labels to fail as predictors of these particular behaviors, visible in the design of Probe 1 itself.
+
+The task asks a persona to disagree with a manager's proposed project change. That is a face-threatening act performed under power asymmetry. The dimensions we coded, directness, deference, hedging, and permission-seeking, are exactly the linguistic resources that politeness research treats as mitigation strategies selected according to features of the interaction: the power differential between speakers, their social distance, and the size of the imposition being made. In that account the strategies themselves are general, and what varies is how the situational variables are weighted and what counts as a large imposition.
+
+A schema that varies these behaviors by cultural background has therefore assigned to stable group membership what the relevant literature assigns to relational context. The same person disagrees differently with a manager, a peer, and a direct report, and differently again when the stakes are high than when they are low. None of that variance is captured by a cultural label, and all of it is captured by variables a persona system could specify directly.
+
+This also predicts the pattern in Section 3.7. If the behaviors in question are governed by features of the interaction rather than by cultural membership, then there is no stable cultural signal for a model to track, and two models given the same labels have nothing to agree about. The uncorrelated orderings are what the absence of an underlying construct looks like from the outside.
+
+The constructive implication is that the situational variables are available and testable in a way the cultural label is not. Power distance within the specific relationship, familiarity between the parties, the magnitude of the imposition, and the institutional register of the setting can each be varied counterfactually, and predictions about their effects on mitigation behavior can be checked against a substantial body of prior work. Section 6 develops this as a recommendation.
+
+We note the limit of this argument. We did not manipulate the situational variables, so we cannot show that they predict the behavior better than the cultural label does. That comparison is the obvious next experiment and we did not run it. What we can say is that the schema currently varies these behaviors along a dimension for which we found no cross-model construct validity, while holding constant the dimensions the literature treats as governing them.
+
 ## 5. Limitations
 
 **Coding methods disagree on magnitude.** We applied deterministic lexical coding and blind LLM-judge coding. They agree on the direction of the Probe 1 cultural effect and on the direction of the Probe 4 framing effect, but diverge by roughly a factor of three on the size of the latter, and disagree on the sign for two dimensions. Neither method is validated against human coding with inter-rater reliability, which remains the appropriate next step. Where the methods diverge we report both and treat the more conservative estimate as primary.
@@ -302,21 +330,37 @@ We report both at length because the failure mode seems likely to be common in p
 
 **Out-of-schema condition.** The Fulfulde condition used a value outside `primary_language`'s permitted set, making it a test of language-label conditioning generally rather than of MatrAIx persona generation specifically.
 
+**The situational-variable alternative is untested.** Sections 4.6 and 6.1 argue that the behaviors we measured are governed by features of the interaction rather than by cultural membership, and recommend specifying those features instead. We did not manipulate power distance, social distance, or imposition size, so we cannot show that they predict the behavior better than a cultural label does. That comparison is the obvious next experiment. What our data support is the negative half of the argument: the cultural label showed no cross-model construct validity on these dimensions.
+
+**Construct validity is assessed on a narrow base.** The validity argument in Section 4.5 rests on rank agreement between two models, on one probe, with one task, under one coding method whose cross-model portability we have separately qualified. It establishes that construct validity has not been demonstrated, not that it is unattainable.
+
 ## 6. Recommendations
 
-**Extend validation to identity attributes.** MatrAIx's persona-adherence infrastructure is suited to this and currently covers ten behavioral attributes and no identity attributes. `cultural_background` is rendered directly into prompts and demonstrably shifts behavior.
+MatrAIx is the case study here, not the subject. The effects we report originate at render time and are inherited by any system that conditions a language model on an identity label, whatever the quality of the schema supplying it. We therefore separate what applies generally from what applies to MatrAIx specifically.
 
-**Validate rendered behavior, not schema structure alone.** Schema review would not have detected the effects reported here. The strongest behavioral difference we measured has no representation in the dependency graph.
+### 6.1 For any system conditioning a model on identity attributes
 
-**Validate against each model actually deployed.** Section 3.7 finds comparable stereotyping on a second provider with no rank agreement on any dimension. Identity-attribute validation results are model-specific and do not carry across providers or, presumably, across model versions.
+This includes persona-based evaluation frameworks, synthetic user research, simulated-participant UX testing, and agent systems with demographic character specifications. The relevant question is not what kind of system it is but whether an identity label is rendered into a prompt.
+
+**Validate rendered behavior, not schema structure alone.** Schema review would not have detected any effect reported here. The strongest behavioral difference we measured has no representation in the dependency graph, and the graph encodes no cultural differentiation at all.
+
+**Validate against each model actually deployed.** Section 3.7 finds comparable stereotyping on a second provider with no rank agreement on any dimension. Identity-attribute validation results are model-specific and should not be assumed to survive a change of provider or, presumably, a change of model version.
+
+**Do not treat cultural-label output as measurement without demonstrating construct validity.** The purpose of generating a persona labeled with a cultural category is normally to learn something about how a system performs for the population that category names. That inference requires the label to track something real about that population. Our cross-model result provides evidence against, and we are not aware of published work establishing it. Systems that present persona output as evidence about demographic groups should either demonstrate that validity or state that they have not.
+
+**Model the situational variables that govern the behavior, not the group label.** The communication behaviors most often attributed to culture in these systems, directness, deference, hedging, and permission-seeking, are treated in the relevant literature as mitigation strategies selected according to power distance, social distance, and size of imposition within a specific interaction. Those variables can be specified in a persona, varied counterfactually, and checked against prior work. A cultural label bundles them into a group category, discards the relational information that actually governs them, and, on this evidence, produces output that two models cannot agree about. Where a system needs to represent variation in communication style, specifying the interaction is both more tractable and more defensible than specifying the culture.
+
+**Treat the conditioning template as a design parameter.** Probe 4 indicates that how identity enters the prompt affects stereotype magnitude independent of which attributes are included. Systems should test their own conditioning templates rather than assuming neutrality. We emphasize that the specific intervention we tested is too modest to recommend as mitigation; the finding is that the template is a surface worth testing, not that we have found the right template.
+
+**Report sample sizes prominently, and replicate across models.** Our pilot demonstrates how readily small-n persona studies produce compelling non-findings. Our own withdrawn interpretive claim demonstrates that adequate n does not protect against a pattern that is real but model-specific.
+
+### 6.2 For MatrAIx specifically
+
+**Extend the persona-adherence suite to identity attributes.** The infrastructure is suited to this and currently covers ten behavioral attributes and no identity attributes. `cultural_background` is rendered directly into prompts and demonstrably shifts behavior.
 
 **Separate cultural affiliation from cultural orientation.** Orientation is already modeled independently in the schema, via `decision_style`, `values_priority`, and `schwartz_value_conformity`. Bundling it into two of eight cultural values prevents the schema from representing combinations real populations exhibit: a persona cannot be South Asian and individualist, or Western and collectivist. This is a representational limitation independent of any behavioral effect. We note that our earlier suggestion that separating these constructs might also reduce stereotyping is not supported by the cross-model data reported in Section 4.2, and we do not advance it.
 
-**Treat framing as a design parameter.** Probe 4 indicates that how identity enters the prompt affects stereotype magnitude independent of which attributes are included. Persona systems should test their own conditioning templates rather than assuming neutrality.
-
 **Document or remove the 133 bare edges, and confirm the intent of the four documented ones.** The bare edges are inert today, but they are undocumented surface area in a graph that documents comparable edges thoroughly. Separately, the four documented `cultural_background` edges carry rationale, evidence level, and confidence 0.62 while producing identical conditional distributions across all eight cultural values. If that uniformity is deliberate, a note recording the decision would prevent the edges being read as encoding variation they do not encode. If it is a calibration artifact, it is worth catching.
-
-**Report sample sizes prominently in persona research, and replicate across models.** Our pilot demonstrates how readily small-n persona studies produce compelling non-findings. Our own withdrawn interpretive claim demonstrates that adequate n does not protect against a pattern that is real but model-specific.
 
 ## 7. Conclusion
 
@@ -326,9 +370,13 @@ None of these effects are traceable to the persona system's schema or dependency
 
 Cross-model replication sharpens this. A second provider produced comparable separation across the same eight cultural labels with no detectable rank agreement on any dimension. The phenomenon is general; the profile is not. Because the profile differs between models, an audit conducted on one model does not transfer to another, and the specific rates reported here should be read as properties of the models that produced them rather than as facts about the labels.
 
+That divergence carries a further implication. Two instruments that order the same eight categories with correlations at or near zero on every dimension are not measuring a shared construct. Each model produces output that is systematic within itself and unrelated to the other's, which is what the absence of an underlying construct looks like from outside. Persona systems are nonetheless used as measurement instruments, on the assumption that a cultural label tracks something real about the population it names. We found no evidence for that assumption and some against it.
+
+There is a reason to expect this. The behaviors we measured, directness, deference, hedging, and permission-seeking, are the mitigation strategies that politeness research treats as selected according to power distance, social distance, and size of imposition within a particular interaction. A schema that varies them by cultural membership has assigned to a stable group category what the literature assigns to relational context, and has discarded the variables that actually govern the behavior. Those variables can be specified in a persona and varied counterfactually. The cultural label cannot be validated in the same way, and on this evidence does not survive the attempt.
+
 Framing salience moderates the effect, but modestly, unevenly, and on one model only. Directing the model to reason about cultural background rather than supplying it inertly narrowed the two largest polarization gaps under both coding methods, while widening two others under judge coding. The conditioning template is a design surface worth testing, but the specific intervention examined here does not, on this evidence, constitute a mitigation.
 
-The primary implication stands regardless: persona systems must validate what their personas do, not only how their schemas are structured, and must do so against the models they actually deploy. Schema review would not have detected any effect reported here, and single-model validation would have produced a picture that a second model does not share.
+The primary implication stands regardless: persona systems must validate what their personas do, not only how their schemas are structured, and must do so against the models they actually deploy. Schema review would not have detected any effect reported here, and single-model validation would have produced a picture that a second model does not share. Where a system needs to represent variation in communication behavior, the interaction is the tractable thing to specify. The culture is not.
 
 ## Code and Data Availability
 
