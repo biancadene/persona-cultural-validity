@@ -2,7 +2,8 @@
 
 Code, data, and paper for an independent audit of identity-attribute conditioning in [MatrAIx](https://arxiv.org/abs/2608.04205), an open-source persona-based AI evaluation framework.
 
-**Paper:** [`paper/cultural_validity_audit_v6.md`](paper/cultural_validity_audit_v6.md)
+**Paper:** [`paper/cultural_validity_audit_v6.pdf`](paper/cultural_validity_audit_v6.pdf) ([markdown source](paper/cultural_validity_audit_v6.md))
+**DOI:** [10.5281/zenodo.21969849](https://doi.org/10.5281/zenodo.21969849)
 
 ## Overview
 
@@ -23,9 +24,11 @@ The behavioral and structural evidence diverge, and that divergence is the centr
 | **3: Cultural background, explicit framing** (n=200, Claude) | Same question, task-confounded | Same direction as Probe 4. Reported as supporting evidence only; Probe 4 exists to remove the confound. |
 | **2: Language label** (n=175, Claude) | Does a native-language label affect task confidence? | No. Task engagement was 100% across all seven languages. Competence hedging did not order by training-data representation: Hindi (36%) exceeded Fulfulde (32%) and English (20%). |
 | **Cross-model replication** (n=200, GPT-4o) | Does the Probe 1 effect transfer to another model? | In kind, not in detail. GPT-4o shows comparable separation across cultural values (28 pts directness, 52 pts group reference) but no detectable rank agreement with Claude on any dimension (Spearman rho between +0.48 and −0.35, all p > 0.2). |
-| **Schema / dependency graph** | Do these effects originate in MatrAIx's design? | No. Across five identity dimensions there are zero edges to competence dimensions. 133 of 137 `cultural_background` edges are undocumented but functionally inert (max probability spread ≈ 0.011). |
+| **Schema / dependency graph** | Do these effects originate in MatrAIx's design? | No. Across five identity dimensions there are zero edges to competence dimensions. No `cultural_background` edge differentiates cultural values by more than 0.0111, and the four edges carrying documented cross-cultural rationale differentiate them by exactly zero. There is no schema contribution to subtract. |
 
 **Headline:** Cultural labels rendered into prompts produce large behavioral shifts that the persona schema does not cause and cannot prevent. The effect appears on both models tested; which label produces which behavior does not transfer between them. An audit performed on one model does not describe another.
+
+**The stronger reading.** Two instruments that rank the same eight categories with correlations at or near zero on every dimension are not measuring a shared construct. Persona systems are nonetheless used as measurement instruments, on the assumption that a cultural label tracks something real about the population it names. This work found no evidence for that assumption and some against it. The paper develops this in section 4.5, and section 4.6 argues why it should be expected: the behaviors measured here (directness, deference, hedging, permission-seeking) are treated in politeness research as mitigation strategies selected by power distance, social distance, and size of imposition within a specific interaction, all of which a persona system can specify directly and none of which a cultural label captures.
 
 ## Two non-replications, reported in full
 
@@ -42,8 +45,8 @@ Adequate sample size protects against the first failure and not at all against t
 ```
 .
 ├── paper/
-│   ├── cultural_validity_audit.md          # v1 (superseded, pre-schema-analysis)
-│   └── cultural_validity_audit_v6.md       # current
+│   ├── cultural_validity_audit_v6.md       # source
+│   └── cultural_validity_audit_v6.pdf      # formatted, matches the Zenodo deposit
 ├── probes/
 │   ├── probe1_expanded.py                  # 8 cultural values x 25, implicit framing
 │   ├── probe2_expanded.py                  # 7 languages x 25, in/out-of-schema
@@ -53,6 +56,7 @@ Adequate sample size protects against the first failure and not at all against t
 │   ├── probe2_language_label.py            # original pilot (n=5/condition)
 │   └── probe3_assertiveness.py             # original pilot (n=5/condition)
 ├── crossmodel_probe1.py                    # Probe 1 replication, OpenAI + Gemini
+├── analyze_schema.py                       # schema and dependency graph analysis
 ├── analyze_lexical.py                      # deterministic marker coding
 ├── analyze_judge.py                        # LLM-judge rubric coding
 ├── analyze_probe4.py                       # Probe 4 lexical comparison
@@ -65,6 +69,7 @@ Adequate sample size protects against the first failure and not at all against t
     ├── probe4_framing/                     # 400 trials + framing + judge analysis
     ├── crossmodel_probe1.jsonl             # raw cross-model trials, all providers
     ├── crossmodel_openai_norm.jsonl        # OpenAI trials, apostrophe-normalized
+    ├── schema_analysis.json                # analyze_schema.py output
     └── [pilot result directories]
 ```
 
@@ -133,7 +138,11 @@ python analyze_judge.py results/probe1_expanded/trial_results.jsonl cultural_bac
 python analyze_judge_probe4.py results/probe4_framing/trial_results.jsonl --per-condition 10
 ```
 
-Schema analysis was performed directly against a local clone of the MatrAIx repository. Queries are documented in the paper, sections 2.3 and 3.5.
+Schema and dependency graph analysis (reproduces paper sections 3.5 and 3.6 from a local MatrAIx clone):
+
+```
+python analyze_schema.py /path/to/MatrAIx-Persona-8B --json results/schema_analysis.json
+```
 
 ## Limitations
 
@@ -144,24 +153,30 @@ Schema analysis was performed directly against a local clone of the MatrAIx repo
 - **English only.** All interactions were in English, including for personas specified as native speakers of other languages.
 - **No significance testing.** Descriptive rates only; no correction for multiple comparisons.
 - **Partial schema coverage.** Five identity dimensions and the directed edge set. Other graph structures were not analyzed.
+- **The situational-variable alternative is untested.** Power distance, social distance, and imposition size were not manipulated, so this work cannot show they predict the behavior better than a cultural label does. That comparison is the obvious next experiment.
+- **Construct validity is assessed on a narrow base.** The argument rests on rank agreement between two models, on one probe, with one task. It establishes that construct validity has not been demonstrated, not that it is unattainable.
 
 ## Relationship to MatrAIx
 
 This is independent research using MatrAIx's public repository and released schema. It is offered as collaborative quality assurance.
 
+MatrAIx is the case study here, not the subject. The effects reported originate at generation time and are inherited by any system that renders an identity label into a prompt, whatever the quality of the schema supplying it: persona-based evaluation frameworks, synthetic user research, simulated-participant UX testing, agent systems with demographic character specifications. That MatrAIx's design turns out to be careful is what makes the dissociation visible. The paper's recommendations are split accordingly, into those for any system conditioning on identity attributes (section 6.1) and those specific to MatrAIx (section 6.2).
+
 The findings are, on balance, favorable to MatrAIx's design: its dependency graph contains no identity-to-competence edges, its documented edges carry rationale and explicit epistemic hedging, and its cultural-background conditionals are near-uniform. The behavioral effects reported here are not caused by that design and would not be prevented by fixing it. They are inherited from whichever model renders the persona.
 
-The recommendations are narrow: extend the existing validation suite to identity attributes, validate against each model actually deployed rather than assuming results transfer, separate cultural affiliation from cultural orientation in the schema as a representational matter, and either document or remove 133 inert undocumented edges.
+The MatrAIx-specific recommendations are narrow: extend the existing validation suite to identity attributes, separate cultural affiliation from cultural orientation in the schema as a representational matter, and either document or remove the 133 inert undocumented edges while confirming whether the uniformity of the four documented ones is deliberate.
 
 ## Citation
 
 ```bibtex
 @misc{williams2026cleanschemas,
-  title  = {Clean Schemas, Stereotyped Personas: Locating Cultural Bias in
-            Persona-Conditioned Language Models},
-  author = {Williams, Bianca Den{\'e}},
-  year   = {2026},
-  note   = {https://github.com/biancadene/cultural-validity-audit-matraix}
+  title     = {Clean Schemas, Stereotyped Personas: Locating Cultural Bias in
+               Persona-Conditioned Language Models},
+  author    = {Williams, Bianca Den{\'e}},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.21969849},
+  note      = {https://github.com/biancadene/cultural-validity-audit-matraix}
 }
 ```
 
