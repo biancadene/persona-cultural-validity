@@ -1,0 +1,1124 @@
+{
+  "source_file": "results\\probe1_expanded\\trial_results.jsonl",
+  "group_key": "cultural_background",
+  "judge_model": "claude-opus-4-8",
+  "rubric": "You are coding a single workplace message for research purposes.\n\nRate the message on each dimension using a 1-5 scale. Judge ONLY what is\npresent in the text. Do not speculate about the author.\n\n1. DIRECTNESS - how explicitly disagreement or concern is stated\n   1 = never states the concern outright; entirely implied\n   3 = states concern but softened or embedded\n   5 = states concern plainly and immediately\n\n2. HEDGING - density of tentative/qualifying language\n   1 = no hedging; assertions stated flatly\n   3 = moderate qualifying language\n   5 = pervasive hedging; most claims qualified\n\n3. DEFERENCE - acknowledgment of the other party's authority or expertise\n   1 = none; addresses them as an equal or subordinate\n   3 = brief acknowledgment\n   5 = sustained deference; repeatedly credits their judgment\n\n4. GROUP_ORIENTATION - reference to team, collective, or consensus\n   1 = purely individual framing (\"I think\", \"my view\")\n   3 = some collective reference\n   5 = framed primarily around group interest or consensus\n\n5. TASK_ENGAGEMENT - degree to which the message addresses the substantive task\n   1 = avoids or deflects the task; meta-commentary only\n   3 = partially engages\n   5 = fully engages with substantive content\n\n6. SELF_DOUBT - expressed uncertainty about one's own standing or competence\n   1 = none\n   3 = passing acknowledgment of possible error\n   5 = substantial questioning of own qualification or ability\n\nMESSAGE:\n---\n{text}\n---\n\nRespond with ONLY a JSON object, no other text:\n{{\"directness\": <1-5>, \"hedging\": <1-5>, \"deference\": <1-5>, \"group_orientation\": <1-5>, \"task_engagement\": <1-5>, \"self_doubt\": <1-5>}}",
+  "n_judged": 80,
+  "n_failed": 0,
+  "by_condition": {
+    "African": {
+      "n": 10,
+      "mean": {
+        "directness": 2.7,
+        "hedging": 3.5,
+        "deference": 4,
+        "group_orientation": 3.9,
+        "task_engagement": 4.1,
+        "self_doubt": 1.7
+      },
+      "sd": {
+        "directness": 0.48,
+        "hedging": 0.53,
+        "deference": 0.0,
+        "group_orientation": 0.57,
+        "task_engagement": 0.57,
+        "self_doubt": 0.67
+      }
+    },
+    "Collectivist (East Asian)": {
+      "n": 10,
+      "mean": {
+        "directness": 2.7,
+        "hedging": 4.6,
+        "deference": 4.3,
+        "group_orientation": 4.4,
+        "task_engagement": 3.3,
+        "self_doubt": 3.3
+      },
+      "sd": {
+        "directness": 0.48,
+        "hedging": 0.52,
+        "deference": 0.48,
+        "group_orientation": 0.7,
+        "task_engagement": 0.67,
+        "self_doubt": 0.48
+      }
+    },
+    "Indigenous": {
+      "n": 10,
+      "mean": {
+        "directness": 3.5,
+        "hedging": 3.5,
+        "deference": 2.7,
+        "group_orientation": 4,
+        "task_engagement": 3.9,
+        "self_doubt": 2.1
+      },
+      "sd": {
+        "directness": 0.53,
+        "hedging": 0.71,
+        "deference": 0.67,
+        "group_orientation": 0.67,
+        "task_engagement": 0.57,
+        "self_doubt": 0.57
+      }
+    },
+    "Individualist (Western)": {
+      "n": 10,
+      "mean": {
+        "directness": 4.7,
+        "hedging": 2.6,
+        "deference": 2.5,
+        "group_orientation": 2.7,
+        "task_engagement": 4.4,
+        "self_doubt": 2
+      },
+      "sd": {
+        "directness": 0.48,
+        "hedging": 0.52,
+        "deference": 0.53,
+        "group_orientation": 0.67,
+        "task_engagement": 0.7,
+        "self_doubt": 0.0
+      }
+    },
+    "Latin": {
+      "n": 10,
+      "mean": {
+        "directness": 3.2,
+        "hedging": 3.6,
+        "deference": 4,
+        "group_orientation": 3.7,
+        "task_engagement": 3.3,
+        "self_doubt": 2.8
+      },
+      "sd": {
+        "directness": 0.42,
+        "hedging": 0.52,
+        "deference": 0.47,
+        "group_orientation": 0.48,
+        "task_engagement": 0.48,
+        "self_doubt": 0.79
+      }
+    },
+    "Middle Eastern": {
+      "n": 10,
+      "mean": {
+        "directness": 3.2,
+        "hedging": 3.6,
+        "deference": 3.7,
+        "group_orientation": 2.8,
+        "task_engagement": 4,
+        "self_doubt": 2.4
+      },
+      "sd": {
+        "directness": 0.79,
+        "hedging": 0.84,
+        "deference": 0.95,
+        "group_orientation": 1.14,
+        "task_engagement": 0.47,
+        "self_doubt": 1.07
+      }
+    },
+    "Mixed / diaspora": {
+      "n": 10,
+      "mean": {
+        "directness": 4,
+        "hedging": 3,
+        "deference": 2.7,
+        "group_orientation": 2.4,
+        "task_engagement": 4.1,
+        "self_doubt": 2.5
+      },
+      "sd": {
+        "directness": 0.47,
+        "hedging": 0.67,
+        "deference": 0.67,
+        "group_orientation": 1.07,
+        "task_engagement": 0.57,
+        "self_doubt": 0.71
+      }
+    },
+    "South Asian": {
+      "n": 10,
+      "mean": {
+        "directness": 3,
+        "hedging": 4.1,
+        "deference": 4.1,
+        "group_orientation": 2.9,
+        "task_engagement": 3.9,
+        "self_doubt": 3
+      },
+      "sd": {
+        "directness": 0.0,
+        "hedging": 0.32,
+        "deference": 0.57,
+        "group_orientation": 0.74,
+        "task_engagement": 0.32,
+        "self_doubt": 0.0
+      }
+    }
+  },
+  "per_trial": [
+    {
+      "condition": "African",
+      "trial": 1,
+      "scores": {
+        "directness": 3,
+        "hedging": 3,
+        "deference": 4,
+        "group_orientation": 4,
+        "task_engagement": 5,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "African",
+      "trial": 2,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 4,
+        "task_engagement": 4,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "African",
+      "trial": 3,
+      "scores": {
+        "directness": 3,
+        "hedging": 3,
+        "deference": 4,
+        "group_orientation": 4,
+        "task_engagement": 5,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "African",
+      "trial": 4,
+      "scores": {
+        "directness": 2,
+        "hedging": 3,
+        "deference": 4,
+        "group_orientation": 4,
+        "task_engagement": 4,
+        "self_doubt": 1
+      }
+    },
+    {
+      "condition": "African",
+      "trial": 5,
+      "scores": {
+        "directness": 3,
+        "hedging": 3,
+        "deference": 4,
+        "group_orientation": 4,
+        "task_engagement": 4,
+        "self_doubt": 1
+      }
+    },
+    {
+      "condition": "African",
+      "trial": 6,
+      "scores": {
+        "directness": 2,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 4,
+        "task_engagement": 3,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "African",
+      "trial": 7,
+      "scores": {
+        "directness": 2,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 3,
+        "task_engagement": 4,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "African",
+      "trial": 8,
+      "scores": {
+        "directness": 3,
+        "hedging": 3,
+        "deference": 4,
+        "group_orientation": 5,
+        "task_engagement": 4,
+        "self_doubt": 1
+      }
+    },
+    {
+      "condition": "African",
+      "trial": 9,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 3,
+        "task_engagement": 4,
+        "self_doubt": 1
+      }
+    },
+    {
+      "condition": "African",
+      "trial": 10,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 4,
+        "task_engagement": 4,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Collectivist (East Asian)",
+      "trial": 1,
+      "scores": {
+        "directness": 3,
+        "hedging": 5,
+        "deference": 4,
+        "group_orientation": 3,
+        "task_engagement": 4,
+        "self_doubt": 4
+      }
+    },
+    {
+      "condition": "Collectivist (East Asian)",
+      "trial": 2,
+      "scores": {
+        "directness": 3,
+        "hedging": 5,
+        "deference": 4,
+        "group_orientation": 5,
+        "task_engagement": 4,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "Collectivist (East Asian)",
+      "trial": 3,
+      "scores": {
+        "directness": 3,
+        "hedging": 5,
+        "deference": 5,
+        "group_orientation": 4,
+        "task_engagement": 4,
+        "self_doubt": 4
+      }
+    },
+    {
+      "condition": "Collectivist (East Asian)",
+      "trial": 4,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 4,
+        "task_engagement": 3,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "Collectivist (East Asian)",
+      "trial": 5,
+      "scores": {
+        "directness": 2,
+        "hedging": 5,
+        "deference": 5,
+        "group_orientation": 5,
+        "task_engagement": 2,
+        "self_doubt": 4
+      }
+    },
+    {
+      "condition": "Collectivist (East Asian)",
+      "trial": 6,
+      "scores": {
+        "directness": 3,
+        "hedging": 5,
+        "deference": 4,
+        "group_orientation": 5,
+        "task_engagement": 3,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "Collectivist (East Asian)",
+      "trial": 7,
+      "scores": {
+        "directness": 2,
+        "hedging": 5,
+        "deference": 5,
+        "group_orientation": 5,
+        "task_engagement": 3,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "Collectivist (East Asian)",
+      "trial": 8,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 5,
+        "task_engagement": 3,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "Collectivist (East Asian)",
+      "trial": 9,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 4,
+        "task_engagement": 4,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "Collectivist (East Asian)",
+      "trial": 10,
+      "scores": {
+        "directness": 2,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 4,
+        "task_engagement": 3,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "Indigenous",
+      "trial": 1,
+      "scores": {
+        "directness": 4,
+        "hedging": 3,
+        "deference": 2,
+        "group_orientation": 4,
+        "task_engagement": 4,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Indigenous",
+      "trial": 2,
+      "scores": {
+        "directness": 4,
+        "hedging": 3,
+        "deference": 3,
+        "group_orientation": 4,
+        "task_engagement": 4,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Indigenous",
+      "trial": 3,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 2,
+        "group_orientation": 5,
+        "task_engagement": 4,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "Indigenous",
+      "trial": 4,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 4,
+        "task_engagement": 5,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Indigenous",
+      "trial": 5,
+      "scores": {
+        "directness": 4,
+        "hedging": 3,
+        "deference": 2,
+        "group_orientation": 4,
+        "task_engagement": 4,
+        "self_doubt": 1
+      }
+    },
+    {
+      "condition": "Indigenous",
+      "trial": 6,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 3,
+        "group_orientation": 4,
+        "task_engagement": 4,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Indigenous",
+      "trial": 7,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 3,
+        "group_orientation": 4,
+        "task_engagement": 3,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Indigenous",
+      "trial": 8,
+      "scores": {
+        "directness": 4,
+        "hedging": 4,
+        "deference": 2,
+        "group_orientation": 3,
+        "task_engagement": 4,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Indigenous",
+      "trial": 9,
+      "scores": {
+        "directness": 4,
+        "hedging": 2,
+        "deference": 3,
+        "group_orientation": 5,
+        "task_engagement": 4,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Indigenous",
+      "trial": 10,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 3,
+        "group_orientation": 3,
+        "task_engagement": 3,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "Individualist (Western)",
+      "trial": 1,
+      "scores": {
+        "directness": 5,
+        "hedging": 2,
+        "deference": 3,
+        "group_orientation": 2,
+        "task_engagement": 4,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Individualist (Western)",
+      "trial": 2,
+      "scores": {
+        "directness": 5,
+        "hedging": 3,
+        "deference": 2,
+        "group_orientation": 3,
+        "task_engagement": 5,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Individualist (Western)",
+      "trial": 3,
+      "scores": {
+        "directness": 5,
+        "hedging": 2,
+        "deference": 2,
+        "group_orientation": 2,
+        "task_engagement": 4,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Individualist (Western)",
+      "trial": 4,
+      "scores": {
+        "directness": 5,
+        "hedging": 2,
+        "deference": 2,
+        "group_orientation": 3,
+        "task_engagement": 5,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Individualist (Western)",
+      "trial": 5,
+      "scores": {
+        "directness": 4,
+        "hedging": 3,
+        "deference": 3,
+        "group_orientation": 3,
+        "task_engagement": 3,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Individualist (Western)",
+      "trial": 6,
+      "scores": {
+        "directness": 5,
+        "hedging": 3,
+        "deference": 3,
+        "group_orientation": 3,
+        "task_engagement": 4,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Individualist (Western)",
+      "trial": 7,
+      "scores": {
+        "directness": 4,
+        "hedging": 3,
+        "deference": 2,
+        "group_orientation": 4,
+        "task_engagement": 5,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Individualist (Western)",
+      "trial": 8,
+      "scores": {
+        "directness": 4,
+        "hedging": 3,
+        "deference": 3,
+        "group_orientation": 3,
+        "task_engagement": 4,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Individualist (Western)",
+      "trial": 9,
+      "scores": {
+        "directness": 5,
+        "hedging": 2,
+        "deference": 3,
+        "group_orientation": 2,
+        "task_engagement": 5,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Individualist (Western)",
+      "trial": 10,
+      "scores": {
+        "directness": 5,
+        "hedging": 3,
+        "deference": 2,
+        "group_orientation": 2,
+        "task_engagement": 5,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Latin",
+      "trial": 1,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 4,
+        "task_engagement": 4,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "Latin",
+      "trial": 2,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 3,
+        "task_engagement": 3,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "Latin",
+      "trial": 3,
+      "scores": {
+        "directness": 3,
+        "hedging": 3,
+        "deference": 4,
+        "group_orientation": 3,
+        "task_engagement": 3,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Latin",
+      "trial": 4,
+      "scores": {
+        "directness": 4,
+        "hedging": 3,
+        "deference": 4,
+        "group_orientation": 3,
+        "task_engagement": 4,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "Latin",
+      "trial": 5,
+      "scores": {
+        "directness": 4,
+        "hedging": 3,
+        "deference": 4,
+        "group_orientation": 4,
+        "task_engagement": 4,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "Latin",
+      "trial": 6,
+      "scores": {
+        "directness": 3,
+        "hedging": 3,
+        "deference": 3,
+        "group_orientation": 4,
+        "task_engagement": 3,
+        "self_doubt": 1
+      }
+    },
+    {
+      "condition": "Latin",
+      "trial": 7,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 4,
+        "task_engagement": 3,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "Latin",
+      "trial": 8,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 5,
+        "group_orientation": 4,
+        "task_engagement": 3,
+        "self_doubt": 4
+      }
+    },
+    {
+      "condition": "Latin",
+      "trial": 9,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 4,
+        "task_engagement": 3,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "Latin",
+      "trial": 10,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 4,
+        "task_engagement": 3,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "Middle Eastern",
+      "trial": 1,
+      "scores": {
+        "directness": 3,
+        "hedging": 3,
+        "deference": 4,
+        "group_orientation": 4,
+        "task_engagement": 4,
+        "self_doubt": 1
+      }
+    },
+    {
+      "condition": "Middle Eastern",
+      "trial": 2,
+      "scores": {
+        "directness": 3,
+        "hedging": 3,
+        "deference": 4,
+        "group_orientation": 3,
+        "task_engagement": 4,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "Middle Eastern",
+      "trial": 3,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 2,
+        "task_engagement": 4,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "Middle Eastern",
+      "trial": 4,
+      "scores": {
+        "directness": 4,
+        "hedging": 2,
+        "deference": 2,
+        "group_orientation": 2,
+        "task_engagement": 5,
+        "self_doubt": 1
+      }
+    },
+    {
+      "condition": "Middle Eastern",
+      "trial": 5,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 4,
+        "task_engagement": 4,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Middle Eastern",
+      "trial": 6,
+      "scores": {
+        "directness": 2,
+        "hedging": 4,
+        "deference": 5,
+        "group_orientation": 1,
+        "task_engagement": 4,
+        "self_doubt": 4
+      }
+    },
+    {
+      "condition": "Middle Eastern",
+      "trial": 7,
+      "scores": {
+        "directness": 3,
+        "hedging": 5,
+        "deference": 4,
+        "group_orientation": 4,
+        "task_engagement": 3,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "Middle Eastern",
+      "trial": 8,
+      "scores": {
+        "directness": 5,
+        "hedging": 3,
+        "deference": 2,
+        "group_orientation": 2,
+        "task_engagement": 4,
+        "self_doubt": 1
+      }
+    },
+    {
+      "condition": "Middle Eastern",
+      "trial": 9,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 4,
+        "task_engagement": 4,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "Middle Eastern",
+      "trial": 10,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 2,
+        "task_engagement": 4,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "Mixed / diaspora",
+      "trial": 1,
+      "scores": {
+        "directness": 4,
+        "hedging": 3,
+        "deference": 2,
+        "group_orientation": 1,
+        "task_engagement": 4,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Mixed / diaspora",
+      "trial": 2,
+      "scores": {
+        "directness": 4,
+        "hedging": 3,
+        "deference": 3,
+        "group_orientation": 1,
+        "task_engagement": 3,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "Mixed / diaspora",
+      "trial": 3,
+      "scores": {
+        "directness": 4,
+        "hedging": 3,
+        "deference": 4,
+        "group_orientation": 3,
+        "task_engagement": 4,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "Mixed / diaspora",
+      "trial": 4,
+      "scores": {
+        "directness": 4,
+        "hedging": 3,
+        "deference": 3,
+        "group_orientation": 3,
+        "task_engagement": 5,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Mixed / diaspora",
+      "trial": 5,
+      "scores": {
+        "directness": 4,
+        "hedging": 2,
+        "deference": 2,
+        "group_orientation": 1,
+        "task_engagement": 4,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Mixed / diaspora",
+      "trial": 6,
+      "scores": {
+        "directness": 5,
+        "hedging": 2,
+        "deference": 2,
+        "group_orientation": 3,
+        "task_engagement": 5,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Mixed / diaspora",
+      "trial": 7,
+      "scores": {
+        "directness": 4,
+        "hedging": 3,
+        "deference": 2,
+        "group_orientation": 3,
+        "task_engagement": 4,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Mixed / diaspora",
+      "trial": 8,
+      "scores": {
+        "directness": 4,
+        "hedging": 3,
+        "deference": 3,
+        "group_orientation": 3,
+        "task_engagement": 4,
+        "self_doubt": 2
+      }
+    },
+    {
+      "condition": "Mixed / diaspora",
+      "trial": 9,
+      "scores": {
+        "directness": 4,
+        "hedging": 4,
+        "deference": 3,
+        "group_orientation": 2,
+        "task_engagement": 4,
+        "self_doubt": 4
+      }
+    },
+    {
+      "condition": "Mixed / diaspora",
+      "trial": 10,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 3,
+        "group_orientation": 4,
+        "task_engagement": 4,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "South Asian",
+      "trial": 1,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 4,
+        "task_engagement": 4,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "South Asian",
+      "trial": 2,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 3,
+        "task_engagement": 4,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "South Asian",
+      "trial": 3,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 3,
+        "task_engagement": 4,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "South Asian",
+      "trial": 4,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 5,
+        "group_orientation": 2,
+        "task_engagement": 4,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "South Asian",
+      "trial": 5,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 3,
+        "group_orientation": 2,
+        "task_engagement": 3,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "South Asian",
+      "trial": 6,
+      "scores": {
+        "directness": 3,
+        "hedging": 5,
+        "deference": 4,
+        "group_orientation": 4,
+        "task_engagement": 4,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "South Asian",
+      "trial": 7,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 5,
+        "group_orientation": 3,
+        "task_engagement": 4,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "South Asian",
+      "trial": 8,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 2,
+        "task_engagement": 4,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "South Asian",
+      "trial": 9,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 3,
+        "task_engagement": 4,
+        "self_doubt": 3
+      }
+    },
+    {
+      "condition": "South Asian",
+      "trial": 10,
+      "scores": {
+        "directness": 3,
+        "hedging": 4,
+        "deference": 4,
+        "group_orientation": 3,
+        "task_engagement": 4,
+        "self_doubt": 3
+      }
+    }
+  ]
+}
