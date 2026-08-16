@@ -125,7 +125,6 @@ def extract_dimensions(schema):
 
 def cpt_max_spread(cpd):
     """
-<<<<<<< HEAD
     Maximum probability difference between any two identity values.
 
     MatrAIx stores conditionals as a pairwise_conditional_matrix:
@@ -188,38 +187,6 @@ def identical_rows(cpd):
     for r in matrix:
         counts[tuple(r)] += 1
     return max(counts.values()) if counts else None
-=======
-    Maximum probability difference between any two identity values, taken as
-    the largest per-outcome range across the conditional table.
-
-    Accepts a mapping {identity_value: {outcome: p}} or {identity_value: [p, ...]}.
-    Returns None if the structure is not recognized.
-    """
-    if not isinstance(cpd, dict) or not cpd:
-        return None
-
-    rows = []
-    for v in cpd.values():
-        if isinstance(v, dict):
-            rows.append(v)
-        elif isinstance(v, list) and all(isinstance(x, (int, float)) for x in v):
-            rows.append({i: x for i, x in enumerate(v)})
-        else:
-            return None
-    if len(rows) < 2:
-        return None
-
-    outcomes = set()
-    for r in rows:
-        outcomes |= set(r.keys())
-
-    spread = 0.0
-    for o in outcomes:
-        vals = [r.get(o) for r in rows if isinstance(r.get(o), (int, float))]
-        if len(vals) >= 2:
-            spread = max(spread, max(vals) - min(vals))
-    return spread
->>>>>>> b7929c8d4631c5da74c8c1c42c8bfc4b99a085f9
 
 
 def analyze(root, inspect=False):
@@ -249,29 +216,21 @@ def analyze(root, inspect=False):
     cb = dims.get("cultural_background")
     if cb:
         vals = cb.get("values") or cb.get("permitted_values") or cb.get("options")
-<<<<<<< HEAD
         template = None
         for k in ("phrase_template", "template", "render", "phrase",
                   "render_template", "prompt_phrase", "phrasing"):
             if cb.get(k):
                 template = cb[k]
                 break
-=======
-        template = cb.get("phrase_template") or cb.get("template") or cb.get("render")
->>>>>>> b7929c8d4631c5da74c8c1c42c8bfc4b99a085f9
         print("cultural_background")
         print(f"  index:       {cb.get('index')}")
         print(f"  category:    {cb.get('category')}")
         print(f"  description: {cb.get('description')}")
-<<<<<<< HEAD
         if template:
             print(f"  template:    {template}")
         else:
             print(f"  template:    not found under known keys")
             print(f"  record keys: {sorted(cb)}")
-=======
-        print(f"  template:    {template}")
->>>>>>> b7929c8d4631c5da74c8c1c42c8bfc4b99a085f9
         print(f"  values ({len(vals) if vals else 0}):")
         for v in vals or []:
             print(f"    {v}")
@@ -281,10 +240,7 @@ def analyze(root, inspect=False):
             "category": cb.get("category"),
             "description": cb.get("description"),
             "template": template,
-<<<<<<< HEAD
             "record_keys": sorted(cb),
-=======
->>>>>>> b7929c8d4631c5da74c8c1c42c8bfc4b99a085f9
             "values": vals,
         }
 
@@ -304,7 +260,6 @@ def analyze(root, inspect=False):
 
         print(f"{dim:<24} {len(out):>7} {len(documented):>11} {len(competence):>14}")
 
-<<<<<<< HEAD
         spreads, spreads_bare = [], []
         for e in out:
             s, nrows = cpt_max_spread(e.get("cpd"))
@@ -316,13 +271,6 @@ def analyze(root, inspect=False):
                 spreads_bare.append(rec)
 
         over_002 = [t for s, t, _ in spreads_bare if s > 0.02]
-=======
-        spreads = []
-        for e in out:
-            s = cpt_max_spread(e.get("cpd"))
-            if s is not None:
-                spreads.append((s, e.get("target")))
->>>>>>> b7929c8d4631c5da74c8c1c42c8bfc4b99a085f9
 
         report["dimensions"][dim] = {
             "total_edges": len(out),
@@ -330,7 +278,6 @@ def analyze(root, inspect=False):
             "undocumented_edges": len(out) - len(documented),
             "edges_to_competence": len(competence),
             "documented_targets": sorted(str(e.get("target")) for e in documented),
-<<<<<<< HEAD
             "max_cpt_spread_all": round(max(s for s, _, _ in spreads), 6) if spreads else None,
             "max_cpt_spread_undocumented": (
                 round(max(s for s, _, _ in spreads_bare), 6) if spreads_bare else None
@@ -339,16 +286,10 @@ def analyze(root, inspect=False):
             "cpt_tables_read": len(spreads),
             "cpt_tables_read_undocumented": len(spreads_bare),
             "undocumented_edges_over_0.02": over_002,
-=======
-            "max_cpt_spread": round(max(s for s, _ in spreads), 6) if spreads else None,
-            "max_spread_target": max(spreads)[1] if spreads else None,
-            "cpt_spreads_measured": len(spreads),
->>>>>>> b7929c8d4631c5da74c8c1c42c8bfc4b99a085f9
         }
 
     # --- Conditional probability spread detail ---------------------------
     print("\nConditional probability spread across identity values:")
-<<<<<<< HEAD
     print("(section 3.6 reports the undocumented figure)")
     for dim in IDENTITY_DIMS:
         r = report["dimensions"][dim]
@@ -382,17 +323,6 @@ def analyze(root, inspect=False):
         report["identical_distribution_edges"] = [
             {"target": t, "identical_values": n} for n, t in identical
         ]
-=======
-    for dim in IDENTITY_DIMS:
-        r = report["dimensions"][dim]
-        if r["max_cpt_spread"] is None:
-            print(f"  {dim:<24} no readable conditional tables")
-            continue
-        print(
-            f"  {dim:<24} max spread {r['max_cpt_spread']:.4f} "
-            f"(target: {r['max_spread_target']}, {r['cpt_spreads_measured']} tables)"
-        )
->>>>>>> b7929c8d4631c5da74c8c1c42c8bfc4b99a085f9
 
     # --- Undocumented edge targets ---------------------------------------
     cb_edges = by_source.get("cultural_background", [])
