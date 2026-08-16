@@ -1,0 +1,820 @@
+{
+  "total_edges": 6999,
+  "dimensions": {
+    "cultural_background": {
+      "total_edges": 137,
+      "documented_edges": 4,
+      "undocumented_edges": 133,
+      "edges_to_competence": 0,
+      "documented_targets": [
+        "att_organized_religion",
+        "att_traditional_gender_roles",
+        "political_lean",
+        "values_priority"
+      ],
+      "max_cpt_spread_all": 0.01109,
+      "max_cpt_spread_undocumented": 0.01109,
+      "max_spread_target_undocumented": "topic_magic_tricks",
+      "cpt_tables_read": 137,
+      "cpt_tables_read_undocumented": 133,
+      "undocumented_edges_over_0.02": []
+    },
+    "primary_language": {
+      "total_edges": 18,
+      "documented_edges": 18,
+      "undocumented_edges": 0,
+      "edges_to_competence": 0,
+      "documented_targets": [
+        "cog_formality",
+        "cog_precision_of_language",
+        "cog_use_of_jargon",
+        "lang_arabic",
+        "lang_bengali",
+        "lang_english",
+        "lang_french",
+        "lang_german",
+        "lang_hindi",
+        "lang_japanese",
+        "lang_mandarin",
+        "lang_portuguese",
+        "lang_russian",
+        "lang_spanish",
+        "lang_swahili",
+        "modality_pref",
+        "register",
+        "tone_expected"
+      ],
+      "max_cpt_spread_all": 0.878,
+      "max_cpt_spread_undocumented": null,
+      "max_spread_target_undocumented": null,
+      "cpt_tables_read": 18,
+      "cpt_tables_read_undocumented": 0,
+      "undocumented_edges_over_0.02": []
+    },
+    "english_proficiency": {
+      "total_edges": 7,
+      "documented_edges": 7,
+      "undocumented_edges": 0,
+      "edges_to_competence": 0,
+      "documented_targets": [
+        "cog_formality",
+        "cog_precision_of_language",
+        "cog_use_of_jargon",
+        "lang_english",
+        "modality_pref",
+        "register",
+        "tone_expected"
+      ],
+      "max_cpt_spread_all": 0.47684,
+      "max_cpt_spread_undocumented": null,
+      "max_spread_target_undocumented": null,
+      "cpt_tables_read": 7,
+      "cpt_tables_read_undocumented": 0,
+      "undocumented_edges_over_0.02": []
+    },
+    "multilingualism": {
+      "total_edges": 6,
+      "documented_edges": 6,
+      "undocumented_edges": 0,
+      "edges_to_competence": 0,
+      "documented_targets": [
+        "cog_formality",
+        "cog_precision_of_language",
+        "cog_use_of_jargon",
+        "modality_pref",
+        "register",
+        "tone_expected"
+      ],
+      "max_cpt_spread_all": 0.0,
+      "max_cpt_spread_undocumented": null,
+      "max_spread_target_undocumented": null,
+      "cpt_tables_read": 6,
+      "cpt_tables_read_undocumented": 0,
+      "undocumented_edges_over_0.02": []
+    },
+    "demo_ethnicity_broad": {
+      "total_edges": 0,
+      "documented_edges": 0,
+      "undocumented_edges": 0,
+      "edges_to_competence": 0,
+      "documented_targets": [],
+      "max_cpt_spread_all": null,
+      "max_cpt_spread_undocumented": null,
+      "max_spread_target_undocumented": null,
+      "cpt_tables_read": 0,
+      "cpt_tables_read_undocumented": 0,
+      "undocumented_edges_over_0.02": []
+    }
+  },
+  "cultural_background_schema": {
+    "index": 24,
+    "category": "Demographic: Cultural",
+    "description": "Cultural frame of reference.",
+    "template": "with a {value} cultural frame",
+    "record_keys": [
+      "category",
+      "defaultValue",
+      "description",
+      "id",
+      "index",
+      "label",
+      "phrase",
+      "values"
+    ],
+    "values": [
+      "Individualist (Western)",
+      "Collectivist (East Asian)",
+      "South Asian",
+      "Latin",
+      "African",
+      "Middle Eastern",
+      "Indigenous",
+      "Mixed / diaspora"
+    ]
+  },
+  "identical_distribution_edges": [
+    {
+      "target": "values_priority",
+      "identical_values": 8
+    },
+    {
+      "target": "political_lean",
+      "identical_values": 8
+    },
+    {
+      "target": "att_traditional_gender_roles",
+      "identical_values": 8
+    },
+    {
+      "target": "att_organized_religion",
+      "identical_values": 8
+    },
+    {
+      "target": "topic_yoga",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_woodworking",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_wine",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_volunteering",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_visual_art",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_tv_series",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_true_crime",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_travel",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_theater",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_technology",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_tea",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_tabletop_rpgs",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_sustainability",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_stand_up_comedy",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_sports",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_spirituality",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_space",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_social_media",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_self_improvement",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_science",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_running",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_robotics",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_religion",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_real_estate",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_puzzles",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_productivity",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_politics",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_poetry",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_podcasts",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_photography",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_philosophy",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_pets",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_personal_finance",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_parenting",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_music",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_motorcycles",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_mindfulness",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_meditation",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_magic_tricks",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_live_concerts",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_literature",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_languages",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_knitting",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_investmentoring",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_investing",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_interior_design",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_home_improvement",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_history",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_hiking",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_genealogy",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_gardening",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_gaming",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_fitness",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_fishing",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_film",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_fashion",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_environment",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_entrepreneurship",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_drones",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_dance",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_cycling",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_cryptocurrency",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_craft_beer",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_cooking",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_comics",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_collecting",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_coffee",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_chess",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_cars",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_camping",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_calligraphy",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_board_games",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_birdwatching",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_baking",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_astronomy",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_astrology",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_architecture",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_anime",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_activism",
+      "identical_values": 7
+    },
+    {
+      "target": "topic_3d_printing",
+      "identical_values": 7
+    },
+    {
+      "target": "att_working_from_office",
+      "identical_values": 7
+    },
+    {
+      "target": "att_veganism",
+      "identical_values": 7
+    },
+    {
+      "target": "att_vaccines",
+      "identical_values": 7
+    },
+    {
+      "target": "att_urban_density",
+      "identical_values": 7
+    },
+    {
+      "target": "att_universal_basic_income",
+      "identical_values": 7
+    },
+    {
+      "target": "att_tipping_culture",
+      "identical_values": 7
+    },
+    {
+      "target": "att_the_gig_economy",
+      "identical_values": 7
+    },
+    {
+      "target": "att_taking_on_debt",
+      "identical_values": 7
+    },
+    {
+      "target": "att_surveillance",
+      "identical_values": 7
+    },
+    {
+      "target": "att_subscription_services",
+      "identical_values": 7
+    },
+    {
+      "target": "att_standardized_testing",
+      "identical_values": 7
+    },
+    {
+      "target": "att_space_exploration",
+      "identical_values": 7
+    },
+    {
+      "target": "att_social_media",
+      "identical_values": 7
+    },
+    {
+      "target": "att_self_driving_cars",
+      "identical_values": 7
+    },
+    {
+      "target": "att_risk_taking",
+      "identical_values": 7
+    },
+    {
+      "target": "att_renewable_energy",
+      "identical_values": 7
+    },
+    {
+      "target": "att_remote_work",
+      "identical_values": 7
+    },
+    {
+      "target": "att_rapid_change",
+      "identical_values": 7
+    },
+    {
+      "target": "att_public_transit",
+      "identical_values": 7
+    },
+    {
+      "target": "att_privacy_vs_security",
+      "identical_values": 7
+    },
+    {
+      "target": "att_performance_reviews",
+      "identical_values": 7
+    },
+    {
+      "target": "att_open_source",
+      "identical_values": 7
+    },
+    {
+      "target": "att_online_reviews",
+      "identical_values": 7
+    },
+    {
+      "target": "att_nuclear_energy",
+      "identical_values": 7
+    },
+    {
+      "target": "att_new_technology",
+      "identical_values": 7
+    },
+    {
+      "target": "att_minimalism",
+      "identical_values": 7
+    },
+    {
+      "target": "att_labor_unions",
+      "identical_values": 7
+    },
+    {
+      "target": "att_influencers",
+      "identical_values": 7
+    },
+    {
+      "target": "att_immigration",
+      "identical_values": 7
+    },
+    {
+      "target": "att_homeownership",
+      "identical_values": 7
+    },
+    {
+      "target": "att_higher_education",
+      "identical_values": 7
+    },
+    {
+      "target": "att_gun_ownership",
+      "identical_values": 7
+    },
+    {
+      "target": "att_government_regulation",
+      "identical_values": 7
+    },
+    {
+      "target": "att_globalized_supply_chains",
+      "identical_values": 7
+    },
+    {
+      "target": "att_globalization",
+      "identical_values": 7
+    },
+    {
+      "target": "att_gentrification",
+      "identical_values": 7
+    },
+    {
+      "target": "att_genetic_engineering",
+      "identical_values": 7
+    },
+    {
+      "target": "att_free_speech",
+      "identical_values": 7
+    },
+    {
+      "target": "att_free_markets",
+      "identical_values": 7
+    },
+    {
+      "target": "att_four_day_work_week",
+      "identical_values": 7
+    },
+    {
+      "target": "att_fast_fashion",
+      "identical_values": 7
+    },
+    {
+      "target": "att_electric_vehicles",
+      "identical_values": 7
+    },
+    {
+      "target": "att_data_privacy",
+      "identical_values": 7
+    },
+    {
+      "target": "att_cryptocurrency",
+      "identical_values": 7
+    },
+    {
+      "target": "att_consumerism",
+      "identical_values": 7
+    },
+    {
+      "target": "att_climate_action",
+      "identical_values": 7
+    },
+    {
+      "target": "att_capital_punishment",
+      "identical_values": 7
+    },
+    {
+      "target": "att_brand_loyalty",
+      "identical_values": 7
+    },
+    {
+      "target": "att_automation",
+      "identical_values": 7
+    },
+    {
+      "target": "att_authority",
+      "identical_values": 7
+    },
+    {
+      "target": "att_alternative_medicine",
+      "identical_values": 7
+    },
+    {
+      "target": "att_ai",
+      "identical_values": 7
+    },
+    {
+      "target": "att_advertising",
+      "identical_values": 7
+    }
+  ],
+  "cultural_background_bare_targets": [
+    "att_advertising",
+    "att_ai",
+    "att_alternative_medicine",
+    "att_authority",
+    "att_automation",
+    "att_brand_loyalty",
+    "att_capital_punishment",
+    "att_climate_action",
+    "att_consumerism",
+    "att_cryptocurrency",
+    "att_data_privacy",
+    "att_electric_vehicles",
+    "att_fast_fashion",
+    "att_four_day_work_week",
+    "att_free_markets",
+    "att_free_speech",
+    "att_genetic_engineering",
+    "att_gentrification",
+    "att_globalization",
+    "att_globalized_supply_chains",
+    "att_government_regulation",
+    "att_gun_ownership",
+    "att_higher_education",
+    "att_homeownership",
+    "att_immigration",
+    "att_influencers",
+    "att_labor_unions",
+    "att_minimalism",
+    "att_new_technology",
+    "att_nuclear_energy",
+    "att_online_reviews",
+    "att_open_source",
+    "att_performance_reviews",
+    "att_privacy_vs_security",
+    "att_public_transit",
+    "att_rapid_change",
+    "att_remote_work",
+    "att_renewable_energy",
+    "att_risk_taking",
+    "att_self_driving_cars",
+    "att_social_media",
+    "att_space_exploration",
+    "att_standardized_testing",
+    "att_subscription_services",
+    "att_surveillance",
+    "att_taking_on_debt",
+    "att_the_gig_economy",
+    "att_tipping_culture",
+    "att_universal_basic_income",
+    "att_urban_density",
+    "att_vaccines",
+    "att_veganism",
+    "att_working_from_office",
+    "topic_3d_printing",
+    "topic_activism",
+    "topic_anime",
+    "topic_architecture",
+    "topic_astrology",
+    "topic_astronomy",
+    "topic_baking",
+    "topic_birdwatching",
+    "topic_board_games",
+    "topic_calligraphy",
+    "topic_camping",
+    "topic_cars",
+    "topic_chess",
+    "topic_coffee",
+    "topic_collecting",
+    "topic_comics",
+    "topic_cooking",
+    "topic_craft_beer",
+    "topic_cryptocurrency",
+    "topic_cycling",
+    "topic_dance",
+    "topic_drones",
+    "topic_entrepreneurship",
+    "topic_environment",
+    "topic_fashion",
+    "topic_film",
+    "topic_fishing",
+    "topic_fitness",
+    "topic_gaming",
+    "topic_gardening",
+    "topic_genealogy",
+    "topic_hiking",
+    "topic_history",
+    "topic_home_improvement",
+    "topic_interior_design",
+    "topic_investing",
+    "topic_investmentoring",
+    "topic_knitting",
+    "topic_languages",
+    "topic_literature",
+    "topic_live_concerts",
+    "topic_magic_tricks",
+    "topic_meditation",
+    "topic_mindfulness",
+    "topic_motorcycles",
+    "topic_music",
+    "topic_parenting",
+    "topic_personal_finance",
+    "topic_pets",
+    "topic_philosophy",
+    "topic_photography",
+    "topic_podcasts",
+    "topic_poetry",
+    "topic_politics",
+    "topic_productivity",
+    "topic_puzzles",
+    "topic_real_estate",
+    "topic_religion",
+    "topic_robotics",
+    "topic_running",
+    "topic_science",
+    "topic_self_improvement",
+    "topic_social_media",
+    "topic_space",
+    "topic_spirituality",
+    "topic_sports",
+    "topic_stand_up_comedy",
+    "topic_sustainability",
+    "topic_tabletop_rpgs",
+    "topic_tea",
+    "topic_technology",
+    "topic_theater",
+    "topic_travel",
+    "topic_true_crime",
+    "topic_tv_series",
+    "topic_visual_art",
+    "topic_volunteering",
+    "topic_wine",
+    "topic_woodworking",
+    "topic_yoga"
+  ]
+}
