@@ -1,0 +1,9 @@
+# Probes 1-4 (Claude)
+anthropic>=0.40.0
+
+# Cross-model replication
+openai>=1.60.0
+google-genai>=0.8.0
+
+# Rank correlation reported in paper section 3.7
+scipy>=1.11.0
