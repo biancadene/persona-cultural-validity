@@ -382,7 +382,7 @@ The primary implication stands regardless: persona systems must validate what th
 
 All probe implementations, raw trial outputs (1,175 responses across two providers), lexical coding scripts and marker definitions, the schema and dependency graph analysis script (`analyze_schema.py`) with its output, cross-model comparison scripts, and per-condition results are available at:
 
-https://github.com/biancadene/cultural-validity-audit-matraix
+https://github.com/biancadene/persona-cultural-validity
 
 ## References
 

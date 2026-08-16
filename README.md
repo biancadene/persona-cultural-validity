@@ -3,7 +3,7 @@
 Code, data, and paper for an independent audit of identity-attribute conditioning in [MatrAIx](https://arxiv.org/abs/2608.04205), an open-source persona-based AI evaluation framework.
 
 **Paper:** [`paper/cultural_validity_audit_v6.pdf`](paper/cultural_validity_audit_v6.pdf) ([markdown source](paper/cultural_validity_audit_v6.md))
-**DOI:** [10.5281/zenodo.21969849](https://doi.org/10.5281/zenodo.21969849)
+**DOI:** [10.5281/zenodo.21970218](https://doi.org/10.5281/zenodo.21970218)
 
 ## Overview
 
@@ -175,8 +175,8 @@ The MatrAIx-specific recommendations are narrow: extend the existing validation 
   author    = {Williams, Bianca Den{\'e}},
   year      = {2026},
   publisher = {Zenodo},
-  doi       = {10.5281/zenodo.21969849},
-  note      = {https://github.com/biancadene/cultural-validity-audit-matraix}
+  doi       = {10.5281/zenodo.21970218},
+  note      = {https://github.com/biancadene/persona-cultural-validity}
 }
 ```
 
