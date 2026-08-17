@@ -62,6 +62,8 @@ Adequate sample size protects against the first failure and not at all against t
 ├── analyze_probe4.py                       # Probe 4 lexical comparison
 ├── analyze_judge_probe4.py                 # Probe 4 judge comparison
 ├── compare_models.py                       # cross-model comparison
+├── requirements.txt
+├── LICENSE
 └── results/
     ├── probe1_expanded/                    # 200 trials + lexical + judge analysis
     ├── probe2_expanded/                    # 175 trials + lexical_analysis.json
@@ -97,7 +99,7 @@ An LLM-judge layer (`analyze_judge.py`) applies a 1 to 5 rubric across six dimen
 ## Reproducing
 
 ```
-pip install anthropic openai google-genai
+pip install -r requirements.txt
 ```
 
 ```
