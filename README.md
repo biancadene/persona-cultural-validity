@@ -2,8 +2,8 @@
 
 Code, data, and paper for an independent audit of identity-attribute conditioning in [MatrAIx](https://arxiv.org/abs/2608.04205), an open-source persona-based AI evaluation framework.
 
-**Paper:** [`paper/cultural_validity_audit_v6.pdf`](paper/cultural_validity_audit_v6.pdf) ([markdown source](paper/cultural_validity_audit_v6.md))
-**DOI:** [10.5281/zenodo.21970218](https://doi.org/10.5281/zenodo.21970218)
+**Paper:** [`paper/cultural_validity_audit_v7.pdf`](paper/cultural_validity_audit_v7.pdf) ([markdown source](paper/cultural_validity_audit_v7.md))
+**DOI:** [10.5281/zenodo.21970217](https://doi.org/10.5281/zenodo.21970217) (resolves to the current version)
 
 ## Overview
 
@@ -28,7 +28,7 @@ The behavioral and structural evidence diverge, and that divergence is the centr
 
 **Headline:** Cultural labels rendered into prompts produce large behavioral shifts that the persona schema does not cause and cannot prevent. The effect appears on both models tested; which label produces which behavior does not transfer between them. An audit performed on one model does not describe another.
 
-**The stronger reading.** Two instruments that rank the same eight categories with correlations at or near zero on every dimension are not measuring a shared construct. Persona systems are nonetheless used as measurement instruments, on the assumption that a cultural label tracks something real about the population it names. This work found no evidence for that assumption and some against it. The paper develops this in section 4.5, and section 4.6 argues why it should be expected: the behaviors measured here (directness, deference, hedging, permission-seeking) are treated in politeness research as mitigation strategies selected by power distance, social distance, and size of imposition within a specific interaction, all of which a persona system can specify directly and none of which a cultural label captures.
+**The stronger reading.** Two instruments that rank the same eight categories with correlations at or near zero on every dimension are not measuring a shared construct. Persona systems are nonetheless used as measurement instruments, on the assumption that a cultural label tracks something real about the population it names. This work found no evidence for that assumption and some against it. The paper develops this in section 4.5, and section 4.6 argues why it should be expected: the behaviors measured here (directness, deference, hedging, permission-seeking) are treated in politeness research (Brown & Levinson, 1987) as mitigation strategies selected by power distance, social distance, and size of imposition within a specific interaction, all of which a persona system can specify directly and none of which a cultural label captures.
 
 ## Two non-replications, reported in full
 
@@ -36,7 +36,7 @@ Both are kept visible rather than quietly removed, because the failure modes are
 
 **The Fulfulde pilot.** An earlier version of this work led with a striking result: a persona labeled with a lower-resource native language disengaged from a technical task and questioned its own competence, in 3 of 5 trials. At n=25 the effect vanished. Task engagement was 100%, and a high-resource language (Hindi) hedged more. This is a sample-size failure. Five trials produced a pattern that did not exist.
 
-**The orientation-bearing-labels claim.** Versions 3 through 5 of this paper argued that polarization concentrates in the two schema values naming a psychological orientation, "Individualist (Western)" and "Collectivist (East Asian)," and that this construct conflation supplies the specific lexical trigger for stereotyped output. On GPT-4o, Individualist ties for highest directness with two geographic values, Collectivist sits mid-range with three geographic values below it, and the extremes are South Asian and Middle Eastern. The claim is withdrawn in v6 and reported as a non-replication. This is a generalization failure. Two hundred trials produced a pattern that is real on that model and does not describe cultural labels as such.
+**The orientation-bearing-labels claim.** Versions 3 through 5 of this paper argued that polarization concentrates in the two schema values naming a psychological orientation, "Individualist (Western)" and "Collectivist (East Asian)," and that this construct conflation supplies the specific lexical trigger for stereotyped output. On GPT-4o, Individualist ties for highest directness with two geographic values, Collectivist sits mid-range with three geographic values below it, and the extremes are South Asian and Middle Eastern. The claim is withdrawn and reported as a non-replication. This is a generalization failure. Two hundred trials produced a pattern that is real on that model and does not describe cultural labels as such.
 
 Adequate sample size protects against the first failure and not at all against the second.
 
@@ -45,8 +45,8 @@ Adequate sample size protects against the first failure and not at all against t
 ```
 .
 ├── paper/
-│   ├── cultural_validity_audit_v6.md       # source
-│   └── cultural_validity_audit_v6.pdf      # formatted, matches the Zenodo deposit
+│   ├── cultural_validity_audit_v7.md       # source
+│   └── cultural_validity_audit_v7.pdf      # formatted, matches the Zenodo deposit
 ├── probes/
 │   ├── probe1_expanded.py                  # 8 cultural values x 25, implicit framing
 │   ├── probe2_expanded.py                  # 7 languages x 25, in/out-of-schema
@@ -177,7 +177,7 @@ The MatrAIx-specific recommendations are narrow: extend the existing validation 
   author    = {Williams, Bianca Den{\'e}},
   year      = {2026},
   publisher = {Zenodo},
-  doi       = {10.5281/zenodo.21970218},
+  doi       = {10.5281/zenodo.21970217},
   note      = {https://github.com/biancadene/persona-cultural-validity}
 }
 ```
